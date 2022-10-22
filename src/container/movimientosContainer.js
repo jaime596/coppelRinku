@@ -67,6 +67,7 @@ export default class MovimientosContainer extends Component {
     });
   };
 
+  
   render() {
     return (
       <Movimientos
