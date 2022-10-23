@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { Empleados, MovimientosMensuales } from "../routes";
 import Movimientos from "../components/Movimientos";
-import NuevoMovimiento from "../components/nuevoMovimiento";
+import NuevoMovimientoContainer from "./nuevoMovimientoContainer";
 
 export default class MovimientosContainer extends Component {
   constructor(props) {
@@ -19,7 +19,6 @@ export default class MovimientosContainer extends Component {
   }
 
   componentDidMount() {
-    this.setState({ loadTable: true });
     this.getEmpleados();
     this.getMovimientos();
   }
@@ -36,11 +35,14 @@ export default class MovimientosContainer extends Component {
         }
       })
       .catch((error) => {
+        console.error(error);
         message.error("Ocurrió un error!");
       });
   };
 
   getMovimientos = () => {
+    this.setState({ loadTable: true });
+
     axios
       .get(MovimientosMensuales)
       .then((response) => {
@@ -52,6 +54,7 @@ export default class MovimientosContainer extends Component {
         }
       })
       .catch((error) => {
+        console.error(error);
         message.error("Ocurrió un error!");
       })
       .finally(() => {
@@ -67,7 +70,6 @@ export default class MovimientosContainer extends Component {
     });
   };
 
-  
   render() {
     return (
       <Movimientos
@@ -75,7 +77,14 @@ export default class MovimientosContainer extends Component {
         movimientos={this.state.movimientos}
         onclickAgregar={this.onclickAgregar}
         abrirModal={this.state.abrirModal}
-        nuevoMovimiento={<NuevoMovimiento />}
+        nuevoMovimiento={
+          <NuevoMovimientoContainer
+            onclickAgregar={this.onclickAgregar}
+            empleados={this.state.empleados}
+            movimientos={this.state.movimientos}
+            regargarTabla={this.getMovimientos}
+          />
+        }
       />
     );
   }

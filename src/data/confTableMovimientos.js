@@ -5,27 +5,27 @@ export const columnsMovimientos = [
     title: "ID Movimiento",
   },
   {
-    key: "noEmpleado",
+    key: "id",
     dataIndex: "noEmpleado",
     title: "No Empleado",
   },
   {
-    key: "empleado",
+    key: "id",
     dataIndex: "empleado",
     title: "Empleado ",
   },
   {
-    key: "rol",
+    key: "id",
     dataIndex: "rol",
     title: "Rol ",
   },
   {
-    key: "mes",
+    key: "id",
     dataIndex: "mes",
     title: "Mes ",
   },
   {
-    key: "cantidadEntregas",
+    key: "id",
     dataIndex: "cantidadEntregas",
     title: "Cantidad de Entregas",
   },

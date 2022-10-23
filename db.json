@@ -1,51 +1,73 @@
 {
-    "empleados": [
-      {
-        "id": 1,
-        "empleado": "Juan",
-        "rol": 1
-      },
-      {
-        "id": 2,
-        "empleado": "Pancho",
-        "rol": 2
-      },
-      {
-        "id": 3,
-        "empleado": "Beto",
-        "rol": 1
-      },
-      {
-          "id": 4,
-        "empleado": "Martin",
-        "rol": 2
-      },
-      {
-        "id": 5,
-        "empleado": "Jaime",
-        "rol": 3
-      }
-    ],
-    "roles" : [
-        {
-            "id": 1,
-            "rol": "Chofer"
-        },
-        {
-            "id": 2,
-            "rol": "Cargador"
-        },
-        {
-            "id": 3,
-            "rol": "Auxiliar"
-        }
-    ],
-    "movimientos" : [{
+  "empleados": [
+    {
       "id": 1,
-      "noEmpleado":1,
+      "empleado": "Juan",
+      "rol": 1
+    },
+    {
+      "id": 2,
+      "empleado": "Pancho",
+      "rol": 2
+    },
+    {
+      "id": 3,
+      "empleado": "Beto",
+      "rol": 1
+    },
+    {
+      "id": 4,
+      "empleado": "Martin",
+      "rol": 2
+    },
+    {
+      "id": 5,
+      "empleado": "Jaime",
+      "rol": 3
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "rol": "Chofer"
+    },
+    {
+      "id": 2,
+      "rol": "Cargador"
+    },
+    {
+      "id": 3,
+      "rol": "Auxiliar"
+    }
+  ],
+  "movimientos": [
+    {
+      "noEmpleado": 1,
       "empleado": "Juan",
       "rol": 1,
       "mes": 1,
-      "cantidadEntregas" : 10
-    }]
-  }
+      "cantidadEntregas": "10",
+      "calculoSueldo": {
+        "sueldoBruto": 7730,
+        "sueldoNeto": 7034.3,
+        "isrRetenido": 695.6999999999999,
+        "vales": 309.2
+      },
+      "id": 1
+    },
+    {
+      "noEmpleado": 1,
+      "empleado": "Juan",
+      "rol": 1,
+      "mes": 1,
+      "cantidadEntregas": "10",
+      "calculoSueldo": {
+        "sueldoBruto": 7730,
+        "sueldoNeto": 7034.3,
+        "isrRetenido": 695.6999999999999,
+        "vales": 309.2
+      },
+      "id": 2
+    }
+  ]
+}

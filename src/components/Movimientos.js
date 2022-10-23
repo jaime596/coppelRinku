@@ -1,4 +1,4 @@
-import { Button, Col, Modal, Row, Table } from "antd";
+import { Button, Col, Divider, Modal, Row, Table } from "antd";
 
 import { columnsMovimientos } from "../data/confTableMovimientos";
 
@@ -15,13 +15,16 @@ const Movimientos = ({
         <h1>Movimientos</h1>
       </Col>
     </Row>
-    <Row justify="center" gutter={[16, 16]}>
+    <Divider></Divider>
+
+    <Row justify="center" gutter={[16, 16]} style={{marginBottom: "10px"}}>
       <Col>
         <Button type="primary" onClick={() => onclickAgregar()}>
           Agregar Movimiento
         </Button>
       </Col>
     </Row>
+
     <Row justify="center" gutter={[16, 16]}>
       <Col>
         <Table
@@ -31,13 +34,14 @@ const Movimientos = ({
         ></Table>
       </Col>
     </Row>
-
     <Modal
+      destroyOnClose={true}
       title="Captura de movimientos por mes"
       open={abrirModal}
       onCancel={() => {
         onclickAgregar();
       }}
+      footer={null}
     >
       {nuevoMovimiento}
     </Modal>
