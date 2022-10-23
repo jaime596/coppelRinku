@@ -48,26 +48,151 @@
       "mes": 1,
       "cantidadEntregas": "10",
       "calculoSueldo": {
+        "sueldo": 5760,
+        "bonoRol": 1920,
+        "bonoPorEntregas": 50,
         "sueldoBruto": 7730,
         "sueldoNeto": 7034.3,
         "isrRetenido": 695.6999999999999,
-        "vales": 309.2
+        "valesDespensa": 309.2
       },
       "id": 1
     },
     {
       "noEmpleado": 1,
       "empleado": "Juan",
+      "rol": 3,
+      "mes": 2,
+      "cantidadEntregas": "15",
+      "calculoSueldo": {
+        "sueldo": 5760,
+        "bonoRol": 0,
+        "bonoPorEntregas": 75,
+        "sueldoBruto": 5835,
+        "sueldoNeto": 5309.85,
+        "isrRetenido": 525.15,
+        "valesDespensa": 233.4
+      },
+      "id": 2
+    },
+    {
+      "noEmpleado": 1,
+      "empleado": "Juan",
       "rol": 1,
+      "mes": 3,
+      "cantidadEntregas": "20",
+      "calculoSueldo": {
+        "sueldo": 5760,
+        "bonoRol": 1920,
+        "bonoPorEntregas": 100,
+        "sueldoBruto": 7780,
+        "sueldoNeto": 7079.8,
+        "isrRetenido": 700.1999999999999,
+        "valesDespensa": 311.2
+      },
+      "id": 3
+    },
+    {
+      "noEmpleado": 5,
+      "empleado": "Jaime",
+      "rol": 3,
       "mes": 1,
       "cantidadEntregas": "10",
       "calculoSueldo": {
-        "sueldoBruto": 7730,
-        "sueldoNeto": 7034.3,
-        "isrRetenido": 695.6999999999999,
-        "vales": 309.2
+        "sueldo": 5760,
+        "bonoRol": 0,
+        "bonoPorEntregas": 50,
+        "sueldoBruto": 5810,
+        "sueldoNeto": 5287.1,
+        "isrRetenido": 522.9,
+        "valesDespensa": 232.4
       },
-      "id": 2
+      "id": 4
+    },
+    {
+      "noEmpleado": 5,
+      "empleado": "Jaime",
+      "rol": 3,
+      "mes": 2,
+      "cantidadEntregas": "15",
+      "calculoSueldo": {
+        "sueldo": 5760,
+        "bonoRol": 0,
+        "bonoPorEntregas": 75,
+        "sueldoBruto": 5835,
+        "sueldoNeto": 5309.85,
+        "isrRetenido": 525.15,
+        "valesDespensa": 233.4
+      },
+      "id": 5
+    },
+    {
+      "noEmpleado": 5,
+      "empleado": "Jaime",
+      "rol": 3,
+      "mes": 3,
+      "cantidadEntregas": "20",
+      "calculoSueldo": {
+        "sueldo": 5760,
+        "bonoRol": 0,
+        "bonoPorEntregas": 100,
+        "sueldoBruto": 5860,
+        "sueldoNeto": 5332.6,
+        "isrRetenido": 527.4,
+        "valesDespensa": 234.4
+      },
+      "id": 6
+    },
+    {
+      "noEmpleado": 3,
+      "empleado": "Beto",
+      "rol": 1,
+      "mes": 5,
+      "cantidadEntregas": "500",
+      "calculoSueldo": {
+        "sueldo": 5760,
+        "bonoRol": 1920,
+        "bonoPorEntregas": 2500,
+        "sueldoBruto": 10180,
+        "sueldoNeto": 8958.4,
+        "isrRetenido": 1221.6,
+        "valesDespensa": 407.2
+      },
+      "id": 7
+    },
+    {
+      "noEmpleado": 5,
+      "empleado": "Jaime",
+      "rol": 3,
+      "mes": 5,
+      "cantidadEntregas": "50",
+      "calculoSueldo": {
+        "sueldo": 5760,
+        "bonoRol": 0,
+        "bonoPorEntregas": 250,
+        "sueldoBruto": 6010,
+        "sueldoNeto": 5469.1,
+        "isrRetenido": 540.9,
+        "valesDespensa": 240.4
+      },
+      "id": 8
+    },
+    {
+      "noEmpleado": 1,
+      "empleado": "Juan",
+      "rol": 1,
+      "mes": 6,
+      "cantidadEntregas": "500",
+      "calculoSueldo": {
+        "sueldo": 5760,
+        "bonoRol": 1920,
+        "bonoPorEntregas": 2500,
+        "sueldoBruto": 10180,
+        "sueldoNeto": 8958.4,
+        "isrRetenido": 1221.6,
+        "valesDespensa": 407.2
+      },
+      "id": 9
     }
   ]
 }

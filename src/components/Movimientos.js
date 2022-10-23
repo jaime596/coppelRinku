@@ -1,4 +1,4 @@
-import { Button, Col, Divider, Modal, Row, Table } from "antd";
+import { Button, Col, Modal, Row, Table } from "antd";
 
 import { columnsMovimientos } from "../data/confTableMovimientos";
 
@@ -10,14 +10,7 @@ const Movimientos = ({
   nuevoMovimiento,
 }) => (
   <>
-    <Row justify="center" gutter={[16, 16]}>
-      <Col>
-        <h1>Movimientos</h1>
-      </Col>
-    </Row>
-    <Divider></Divider>
-
-    <Row justify="center" gutter={[16, 16]} style={{marginBottom: "10px"}}>
+    <Row justify="center" gutter={[16, 16]} style={{ marginBottom: "10px" }}>
       <Col>
         <Button type="primary" onClick={() => onclickAgregar()}>
           Agregar Movimiento
@@ -28,6 +21,9 @@ const Movimientos = ({
     <Row justify="center" gutter={[16, 16]}>
       <Col>
         <Table
+          pagination={{
+            position: ["bottomCenter", "bottomCenter"],
+          }}
           loading={loadTable}
           columns={columnsMovimientos}
           dataSource={movimientos}

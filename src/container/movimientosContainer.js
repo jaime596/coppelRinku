@@ -50,7 +50,7 @@ export default class MovimientosContainer extends Component {
           const { data } = response;
           this.setState({ movimientos: data });
         } else {
-          message.error("Error al cargar los empleados");
+          message.error("Error al cargar los movimientos");
         }
       })
       .catch((error) => {

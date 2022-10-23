@@ -5,6 +5,7 @@ import {
   ISR,
   ISR_ADICIONAL,
   JORNADA,
+  PAGA_ENTREGA_CLIENTE,
   SEMANAS_TRABAJADAS,
   SUELDO_BASE,
   SUELDO_TOPE,
@@ -12,15 +13,22 @@ import {
 } from "../data/vales";
 
 export const calculo = (rol, entregas) => {
-  const sueldoBruto = sueldoBase() + bono(rol) + bonoEntregas(entregas);
+  
+  const sueldo = sueldoBase();
+  const bonoRol = bono(rol);
+  const bonoPorEntregas = bonoEntregas(entregas);
+  const sueldoBruto = sueldo + bonoRol + bonoPorEntregas;
   const isrRetenido = retencionISR(sueldoBruto);
   const valesDespensa = vales(sueldoBruto);
 
   return {
-    sueldoBruto: sueldoBruto,
+    sueldo,
+    bonoRol,
+    bonoPorEntregas,
+    sueldoBruto,
     sueldoNeto: sueldoBruto - isrRetenido,
-    isrRetenido: isrRetenido,
-    vales: valesDespensa,
+    isrRetenido,
+    valesDespensa,
   };
 };
 
@@ -46,7 +54,7 @@ const bono = (rol) => {
 };
 
 const bonoEntregas = (entregas) => {
-  return entregas * 5;
+  return entregas * PAGA_ENTREGA_CLIENTE;
 };
 
 const retencionISR = (sueldoBruto) => {

@@ -1,9 +1,9 @@
 import "./App.css";
 import "antd/dist/antd.min.css";
-import MovimientosContainer from "./container/movimientosContainer";
+import TapsMenu from "./components/tapsMenu";
 
 function App() {
-  return <MovimientosContainer />;
+  return <TapsMenu />;
 }
 
 export default App;

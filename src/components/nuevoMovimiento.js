@@ -66,7 +66,9 @@ const NuevoMovimiento = ({
           }
           onSelect={(elemento) => {
             empleadoSeleccionado(elemento);
-            empleado = empleados.find((empleado) => empleado.empleado === elemento);
+            empleado = empleados.find(
+              (empleado) => empleado.empleado === elemento
+            );
             form.setFieldsValue({
               rol: empleado.rol,
               noEmpleado: empleado.id,
@@ -94,14 +96,6 @@ const NuevoMovimiento = ({
           filterOption={(input, option) =>
             option.children.toLowerCase().includes(input.toLowerCase())
           }
-          // onSelect={(elemento) => {
-          //   empleadoSeleccionado(elemento);
-          //   empleado = empleados.find((empleado) => empleado.id === elemento);
-          //   form.setFieldsValue({
-          //     rol: empleado.rol,
-          //     noEmpleado: empleado.id,
-          //   });
-          // }}
         >
           <Option value={1} key={1}>
             Enero
