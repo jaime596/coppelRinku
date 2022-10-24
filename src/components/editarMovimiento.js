@@ -3,10 +3,11 @@ import { AUXILIAR, CARGADOR, CHOFER } from "../data/vales";
 
 const { Option } = Select;
 
-const NuevoMovimiento = ({
-  nuevoRegistro,
+const EditarMovimiento = ({
+  modificarRegistro,
   empleados,
   empleadoSeleccionado,
+  modificarEmpleado,
 }) => {
   const [form] = Form.useForm();
   var empleado = {};
@@ -24,14 +25,24 @@ const NuevoMovimiento = ({
     }
   };
 
+  form.setFieldsValue({
+    noEmpleado: modificarEmpleado.noEmpleado,
+    nombreEmpleado: modificarEmpleado.empleado,
+    rol: selecionarRol(modificarEmpleado.rol),
+    mes: modificarEmpleado.mes,
+    horasTrabajadas: modificarEmpleado.horasTrabajadas,
+    cantidadEntregas: modificarEmpleado.cantidadEntregas,
+  });
+
   return (
-    <Form form={form} onFinish={(valores) => nuevoRegistro(valores)}>
+    <Form form={form} onFinish={(valores) => modificarRegistro(valores)}>
       <Form.Item
         label="Número Empleado"
         name="noEmpleado"
         rules={[{ required: true, message: "Campo requerido" }]}
       >
         <Select
+          disabled={true}
           showSearch
           optionFilterProp="children"
           filterOption={(input, option) =>
@@ -59,6 +70,7 @@ const NuevoMovimiento = ({
         rules={[{ required: true, message: "Campo requerido" }]}
       >
         <Select
+          disabled={true}
           showSearch
           optionFilterProp="children"
           filterOption={(input, option) =>
@@ -140,7 +152,7 @@ const NuevoMovimiento = ({
         name="horasTrabajadas"
         rules={[{ required: true, message: "Campo requerido" }]}
       >
-        <InputNumber max={192} min={0} style={{width:"100%"}}></InputNumber>
+        <InputNumber max={192} min={0} style={{ width: "100%" }}></InputNumber>
       </Form.Item>
       <Form.Item
         label="Cantidad de Entregas"
@@ -154,7 +166,7 @@ const NuevoMovimiento = ({
         <Row justify="end">
           <Col>
             <Button htmlType="submit" type="primary">
-              Guardar
+              Modificar
             </Button>
           </Col>
         </Row>
@@ -163,4 +175,4 @@ const NuevoMovimiento = ({
   );
 };
 
-export default NuevoMovimiento;
+export default EditarMovimiento;

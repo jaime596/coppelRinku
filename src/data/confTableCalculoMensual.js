@@ -40,6 +40,11 @@ export const confTableCalculoMensual = [
     dataIndex: "valesDespensaTotal",
     title: "Total de Vales deDespensa",
   },
+  {
+    key: "horasTotalTrabajados",
+    dataIndex: "horasTotalTrabajados",
+    title: "Total de horas trabajadas",
+  },
 ];
 
 const cambiaraMes = (mes) => {

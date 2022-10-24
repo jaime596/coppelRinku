@@ -1,21 +1,17 @@
 import {
   BONO_CARGADOR_HORA,
   BONO_CHOFER_HORA,
-  DIAS_TRABAJADOS,
   ISR,
   ISR_ADICIONAL,
-  JORNADA,
   PAGA_ENTREGA_CLIENTE,
-  SEMANAS_TRABAJADAS,
   SUELDO_BASE,
   SUELDO_TOPE,
   VALES_DESPENSA,
 } from "../data/vales";
 
-export const calculo = (rol, entregas) => {
-  
-  const sueldo = sueldoBase();
-  const bonoRol = bono(rol);
+export const calculo = (rol, entregas, horas) => {
+  const sueldo = sueldoBase(horas);
+  const bonoRol = bono(rol, horas);
   const bonoPorEntregas = bonoEntregas(entregas);
   const sueldoBruto = sueldo + bonoRol + bonoPorEntregas;
   const isrRetenido = retencionISR(sueldoBruto);
@@ -32,19 +28,19 @@ export const calculo = (rol, entregas) => {
   };
 };
 
-const sueldoBase = () => {
-  return SUELDO_BASE * JORNADA * (DIAS_TRABAJADOS * SEMANAS_TRABAJADAS);
+const sueldoBase = (horas) => {
+  return SUELDO_BASE * horas;
 };
 
-const bono = (rol) => {
+const bono = (rol, horas) => {
   switch (rol) {
     case 1:
       return (
-        BONO_CHOFER_HORA * JORNADA * (DIAS_TRABAJADOS * SEMANAS_TRABAJADAS)
+        BONO_CHOFER_HORA * horas
       );
     case 2:
       return (
-        BONO_CARGADOR_HORA * JORNADA * (DIAS_TRABAJADOS * SEMANAS_TRABAJADAS)
+        BONO_CARGADOR_HORA * horas
       );
     case 3:
       return 0;

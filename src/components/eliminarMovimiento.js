@@ -3,10 +3,11 @@ import { AUXILIAR, CARGADOR, CHOFER } from "../data/vales";
 
 const { Option } = Select;
 
-const NuevoMovimiento = ({
-  nuevoRegistro,
+const EliminarMovimiento = ({
+  eliminarRegistro,
   empleados,
   empleadoSeleccionado,
+  eliminarEmpleado,
 }) => {
   const [form] = Form.useForm();
   var empleado = {};
@@ -24,14 +25,24 @@ const NuevoMovimiento = ({
     }
   };
 
+  form.setFieldsValue({
+    noEmpleado: eliminarEmpleado.noEmpleado,
+    nombreEmpleado: eliminarEmpleado.empleado,
+    rol: selecionarRol(eliminarEmpleado.rol),
+    mes: eliminarEmpleado.mes,
+    horasTrabajadas: eliminarEmpleado.horasTrabajadas,
+    cantidadEntregas: eliminarEmpleado.cantidadEntregas,
+  });
+
   return (
-    <Form form={form} onFinish={(valores) => nuevoRegistro(valores)}>
+    <Form form={form} onFinish={(valores) => eliminarRegistro(valores)}>
       <Form.Item
         label="Número Empleado"
         name="noEmpleado"
         rules={[{ required: true, message: "Campo requerido" }]}
       >
         <Select
+          disabled={true}
           showSearch
           optionFilterProp="children"
           filterOption={(input, option) =>
@@ -59,6 +70,7 @@ const NuevoMovimiento = ({
         rules={[{ required: true, message: "Campo requerido" }]}
       >
         <Select
+          disabled={true}
           showSearch
           optionFilterProp="children"
           filterOption={(input, option) =>
@@ -91,6 +103,7 @@ const NuevoMovimiento = ({
         rules={[{ required: true, message: "Campo requerido" }]}
       >
         <Select
+          disabled={true}
           showSearch
           optionFilterProp="children"
           filterOption={(input, option) =>
@@ -140,21 +153,26 @@ const NuevoMovimiento = ({
         name="horasTrabajadas"
         rules={[{ required: true, message: "Campo requerido" }]}
       >
-        <InputNumber max={192} min={0} style={{width:"100%"}}></InputNumber>
+        <InputNumber
+          disabled={true}
+          max={192}
+          min={0}
+          style={{ width: "100%" }}
+        ></InputNumber>
       </Form.Item>
       <Form.Item
         label="Cantidad de Entregas"
         name="cantidadEntregas"
         rules={[{ required: true, message: "Campo requerido" }]}
       >
-        <Input type="number" autoComplete="off"></Input>
+        <Input disabled={true} type="number" autoComplete="off"></Input>
       </Form.Item>
 
       <Form.Item>
         <Row justify="end">
           <Col>
             <Button htmlType="submit" type="primary">
-              Guardar
+              Eliminar
             </Button>
           </Col>
         </Row>
@@ -163,4 +181,4 @@ const NuevoMovimiento = ({
   );
 };
 
-export default NuevoMovimiento;
+export default EliminarMovimiento;

@@ -5,6 +5,8 @@ import axios from "axios";
 import { Empleados, MovimientosMensuales } from "../routes";
 import Movimientos from "../components/Movimientos";
 import NuevoMovimientoContainer from "./nuevoMovimientoContainer";
+import EditarMovimientoContainer from "./editarMovimientoContainer";
+import EliminarMovimientoContainer from "./eliminarMovimientoContainer";
 
 export default class MovimientosContainer extends Component {
   constructor(props) {
@@ -15,6 +17,10 @@ export default class MovimientosContainer extends Component {
       empleados: [],
       loadTable: false,
       abrirModal: false,
+      abrirModalModificar: false,
+      modificarMovimiento: {},
+      abrirModalEliminar: false,
+      eliminarMovimiento: {},
     };
   }
 
@@ -70,6 +76,29 @@ export default class MovimientosContainer extends Component {
     });
   };
 
+  onclickModificar = () => {
+    this.setState({
+      abrirModalModificar: !this.state.abrirModalModificar,
+    });
+  };
+
+  onclickEliminar = () => {
+    this.setState({
+      abrirModalEliminar: !this.state.abrirModalEliminar,
+    });
+  };
+
+  selectModificar = (valor) => {
+    this.setState({
+      modificarMovimiento: valor,
+    });
+  };
+
+  selectEliminar = (valor) => {
+    this.setState({
+      eliminarMovimiento: valor,
+    });
+  };
   render() {
     return (
       <Movimientos
@@ -85,6 +114,30 @@ export default class MovimientosContainer extends Component {
             regargarTabla={this.getMovimientos}
           />
         }
+        onclickModificar={this.onclickModificar}
+        abrirModalModificar={this.state.abrirModalModificar}
+        modificarMovimiento={
+          <EditarMovimientoContainer
+            onclickModificar={this.onclickModificar}
+            empleados={this.state.empleados}
+            movimientos={this.state.movimientos}
+            regargarTabla={this.getMovimientos}
+            modificarMovimiento={this.state.modificarMovimiento}
+          />
+        }
+        selectModificar={this.selectModificar}
+        onclickEliminar={this.onclickEliminar}
+        abrirModalEliminar={this.state.abrirModalEliminar}
+        eliminarMovimiento={
+          <EliminarMovimientoContainer
+            onclickEliminar={this.onclickEliminar}
+            empleados={this.state.empleados}
+            movimientos={this.state.movimientos}
+            regargarTabla={this.getMovimientos}
+            eliminarMovimiento={this.state.eliminarMovimiento}
+          />
+        }
+        selectEliminar={this.selectEliminar}
       />
     );
   }

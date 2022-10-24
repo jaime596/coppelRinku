@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import { message } from "antd";
 import axios from "axios";
-import NuevoMovimiento from "../components/nuevoMovimiento";
 import { AUXILIAR, CARGADOR, CHOFER } from "../data/vales";
 import { calculo } from "../functions/calculoPagos";
 import { MovimientosMensuales } from "../routes";
+import EditarMovimiento from "../components/editarMovimiento";
 
-export default class NuevoMovimientoContainer extends Component {
+export default class EditarMovimientoContainer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       data: {},
       loadGuardar: false,
       empleados: this.props.empleados ?? [],
       movimientos: this.props.movimientos ?? [],
       empleadoSeleccionado: {},
+      modificarEmpleado: this.props.modificarMovimiento,
     };
   }
 
@@ -32,7 +32,7 @@ export default class NuevoMovimientoContainer extends Component {
     }
   };
 
-  nuevoRegistro = (valores) => {
+  modificarRegistro = (valores) => {
     if (
       this.state.movimientos.find((movimiento) => {
         if (
@@ -64,10 +64,10 @@ export default class NuevoMovimientoContainer extends Component {
       };
 
       axios
-        .post(MovimientosMensuales, data)
+        .put(MovimientosMensuales + "/" + this.state.modificarEmpleado.id, data)
         .then((respuesta) => {
-          if (respuesta.status === 201) {
-            message.success("Movimiento agregado!");
+          if (respuesta.status === 200) {
+            message.success("Movimiento modificado!");
           }
           console.log(respuesta);
         })
@@ -76,15 +76,12 @@ export default class NuevoMovimientoContainer extends Component {
         })
         .finally(() => {
           this.props.regargarTabla();
-          this.props.onclickAgregar();
+          this.props.onclickModificar();
         });
     }
   };
 
   empleadoSeleccionado = (elemento) => {
-    console.log(
-      this.state.empleados.find((empleado) => empleado.id === elemento)
-    );
     this.setState({
       empleadoSeleccionado: this.state.empleados.find(
         (empleado) => empleado.id === elemento
@@ -94,10 +91,11 @@ export default class NuevoMovimientoContainer extends Component {
 
   render() {
     return (
-      <NuevoMovimiento
-        nuevoRegistro={this.nuevoRegistro}
+      <EditarMovimiento
+        modificarRegistro={this.modificarRegistro}
         empleados={this.state.empleados}
         empleadoSeleccionado={this.empleadoSeleccionado}
+        modificarEmpleado={this.state.modificarEmpleado}
       />
     );
   }
