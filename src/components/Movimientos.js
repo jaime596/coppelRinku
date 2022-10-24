@@ -15,6 +15,9 @@ const Movimientos = ({
   abrirModalEliminar,
   eliminarMovimiento,
   selectEliminar,
+  onclickAgregarEmpleado,
+  abrirAgregarEmpleado,
+  agregarEmpleado,
 }) => {
   const columnasTabla = () => [
     {
@@ -84,6 +87,11 @@ const Movimientos = ({
             Agregar Movimiento
           </Button>
         </Col>
+        <Col>
+          <Button type="primary" onClick={() => onclickAgregarEmpleado()}>
+            Agregar Empleado
+          </Button>
+        </Col>
       </Row>
 
       <Row justify="center" gutter={[16, 16]}>
@@ -130,6 +138,17 @@ const Movimientos = ({
         footer={null}
       >
         {eliminarMovimiento}
+      </Modal>
+      <Modal
+        destroyOnClose={true}
+        title="Agregar empleado"
+        open={abrirAgregarEmpleado}
+        onCancel={() => {
+          onclickAgregarEmpleado();
+        }}
+        footer={null}
+      >
+        {agregarEmpleado}
       </Modal>
     </>
   );

@@ -24,6 +24,21 @@
       "id": 5,
       "empleado": "Jaime",
       "rol": 3
+    },
+    {
+      "empleado": "nala",
+      "rol": 1,
+      "id": 6
+    },
+    {
+      "empleado": "milka",
+      "rol": 1,
+      "id": 7
+    },
+    {
+      "empleado": "pimienta",
+      "rol": 2,
+      "id": 8
     }
   ],
   "roles": [

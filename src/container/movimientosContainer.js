@@ -7,6 +7,7 @@ import Movimientos from "../components/Movimientos";
 import NuevoMovimientoContainer from "./nuevoMovimientoContainer";
 import EditarMovimientoContainer from "./editarMovimientoContainer";
 import EliminarMovimientoContainer from "./eliminarMovimientoContainer";
+import AgregarEmpleadoContainer from "./agregarEmpleadoContainer";
 
 export default class MovimientosContainer extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class MovimientosContainer extends Component {
       modificarMovimiento: {},
       abrirModalEliminar: false,
       eliminarMovimiento: {},
+      abrirAgregarEmpleado: false,
     };
   }
 
@@ -88,6 +90,12 @@ export default class MovimientosContainer extends Component {
     });
   };
 
+  onclickAgregarEmpleado = () => {
+    this.setState({
+      abrirAgregarEmpleado: !this.state.abrirAgregarEmpleado,
+    });
+  };
+
   selectModificar = (valor) => {
     this.setState({
       modificarMovimiento: valor,
@@ -138,6 +146,14 @@ export default class MovimientosContainer extends Component {
           />
         }
         selectEliminar={this.selectEliminar}
+        onclickAgregarEmpleado={this.onclickAgregarEmpleado}
+        abrirAgregarEmpleado={this.state.abrirAgregarEmpleado}
+        agregarEmpleado={
+          <AgregarEmpleadoContainer
+            onclickAgregarEmpleado={this.onclickAgregarEmpleado}
+            getEmpleados={this.getEmpleados}
+          />
+        }
       />
     );
   }
